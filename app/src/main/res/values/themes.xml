@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme._22_DACN_NguyenNhatLong_CR424K" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">#1565C0</item>
+        <item name="colorPrimaryVariant">#0D47A1</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:windowBackground">#F4F6F9</item>
+    </style>
+
+    <style name="Theme._22_DACN_NguyenNhatLong_CR424K" parent="Base.Theme._22_DACN_NguyenNhatLong_CR424K" />
+</resources>

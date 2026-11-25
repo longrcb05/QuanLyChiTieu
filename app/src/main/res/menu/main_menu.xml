@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_stats"
+        android:title="📊 Thống kê chi tiêu"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_filter_all"
+        android:title="Hiển thị tất cả giao dịch"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_filter_income"
+        android:title="Chỉ xem Khoản Thu"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_filter_expense"
+        android:title="Chỉ xem Khoản Chi"
+        app:showAsAction="never" />
+</menu>

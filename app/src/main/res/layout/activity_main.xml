@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#F4F6F9">
+
+    <!-- Nội dung chính phía trên thanh BottomNavigationView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigation"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Thẻ Tổng Quan Tài Chính Đã Tối Ưu Bố Cục -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="#1565C0"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SỐ DƯ HIỆN TẠI"
+                    android:textColor="#BBDEFB"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 đ"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="6dp" />
+
+                <!-- Thẻ pill nổi bật hiển thị chi tiêu hôm nay -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="14dp"
+                    app:cardBackgroundColor="#0D47A1"
+                    app:cardElevation="0dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tvTodayExpenseBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🛒 Hôm nay chi: 0 đ"
+                        android:textColor="#FFCDD2"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- Đường kẻ phân cách mảnh -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#1E88E5"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Hàng Tổng Thu / Tổng Chi cân đối ở đáy thẻ -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvTotalIncome"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tổng Thu: 0 đ"
+                        android:textColor="#C8E6C9"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTotalExpense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="Tổng Chi: 0 đ"
+                        android:textColor="#FFCDD2"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ================= TRANG 1 (MẶC ĐỊNH): LỊCH LOCKET ================= -->
+        <LinearLayout
+            android:id="@+id/layoutTabCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <!-- Thanh điều hướng tháng < Tháng 11 / 2026 > -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="6dp"
+                android:layout_marginBottom="6dp">
+
+                <Button
+                    android:id="@+id/btnPrevMonth"
+                    android:layout_width="42dp"
+                    android:layout_height="36dp"
+                    android:text="&lt;"
+                    android:backgroundTint="#E3F2FD"
+                    android:textColor="#1565C0"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCurrentMonthYear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tháng 11 / 2026"
+                    android:gravity="center"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#212121" />
+
+                <Button
+                    android:id="@+id/btnNextMonth"
+                    android:layout_width="42dp"
+                    android:layout_height="36dp"
+                    android:text="&gt;"
+                    android:backgroundTint="#E3F2FD"
+                    android:textColor="#1565C0"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Lưới lịch 7 cột -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="6dp"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="T2" android:gravity="center" android:textSize="12sp" android:textStyle="bold" android:textColor="#757575" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="T3" android:gravity="center" android:textSize="12sp" android:textStyle="bold" android:textColor="#757575" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="T4" android:gravity="center" android:textSize="12sp" android:textStyle="bold" android:textColor="#757575" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="T5" android:gravity="center" android:textSize="12sp" android:textStyle="bold" android:textColor="#757575" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="T6" android:gravity="center" android:textSize="12sp" android:textStyle="bold" android:textColor="#757575" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="T7" android:gravity="center" android:textSize="12sp" android:textStyle="bold" android:textColor="#757575" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CN" android:gravity="center" android:textSize="12sp" android:textStyle="bold" android:textColor="#C62828" />
+                </LinearLayout>
+
+                <GridView
+                    android:id="@+id/gvCalendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:numColumns="7"
+                    android:verticalSpacing="2dp"
+                    android:horizontalSpacing="2dp"
+                    android:stretchMode="columnWidth" />
+            </LinearLayout>
+
+            <!-- Danh sách giao dịch của ngày đang chọn -->
+            <TextView
+                android:id="@+id/tvSelectedDayTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Giao dịch trong ngày:"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#1565C0"
+                android:layout_marginBottom="4dp" />
+
+            <ListView
+                android:id="@+id/lvDayTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#EEEEEE"
+                android:dividerHeight="1dp" />
+        </LinearLayout>
+
+        <!-- ================= TRANG 2: CÁC GIAO DỊCH ================= -->
+        <LinearLayout
+            android:id="@+id/layoutTabTransactions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="#FFFFFF"
+                android:hint="🔍 Tìm giao dịch, danh mục, hũ..."
+                android:paddingHorizontal="12dp"
+                android:textSize="14sp"
+                android:singleLine="true"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvListHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tất cả các giao dịch (Chạm để sửa, giữ để xóa)"
+                android:textSize="12sp"
+                android:textColor="#616161"
+                android:layout_marginBottom="6dp" />
+
+            <ListView
+                android:id="@+id/lvTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#EEEEEE"
+                android:dividerHeight="1dp" />
+        </LinearLayout>
+
+        <!-- ================= TRANG 3: HŨ CHI TIÊU ================= -->
+        <LinearLayout
+            android:id="@+id/layoutTabJars"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Chạm vào hũ để nạp tiền"
+                    android:textSize="12sp"
+                    android:textColor="#616161" />
+
+                <Button
+                    android:id="@+id/btnAddJar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:text="+ Tạo Hũ Mới"
+                    android:textAllCaps="false"
+                    android:backgroundTint="#1565C0"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lvJars"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#F4F6F9"
+                android:dividerHeight="8dp" />
+        </LinearLayout>
+
+        <!-- ================= TRANG 4: THỐNG KÊ CHI TIÊU ================= -->
+        <ScrollView
+            android:id="@+id/layoutTabStats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TỶ LỆ CHI TIÊU THEO DANH MỤC"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#1565C0"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Biểu đồ tròn chia tỉ lệ -->
+                <com.example.a22_dacn_nguyennhatlong_cr424k.view.PieChartView
+                    android:id="@+id/pieChartView"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Danh sách chú thích màu + số tiền + % từng phần -->
+                <LinearLayout
+                    android:id="@+id/layoutStatsLegend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- Nút + nổi (FAB) góc phải phía trên thanh menu dưới -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomNavigation"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_input_add"
+        app:tint="#FFFFFF"
+        app:backgroundTint="#1565C0"
+        android:contentDescription="Thêm giao dịch" />
+
+    <!-- Thanh Menu điều hướng ở bên dưới màn hình -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        app:itemIconTint="#1565C0"
+        app:itemTextColor="#1565C0"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
+
+</RelativeLayout>
