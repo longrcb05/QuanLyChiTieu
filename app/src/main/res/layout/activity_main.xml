@@ -6,7 +6,6 @@
     android:fitsSystemWindows="true"
     android:background="#F4F6F9">
 
-    <!-- Nội dung chính phía trên thanh BottomNavigationView -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,7 +13,6 @@
         android:orientation="vertical"
         android:padding="12dp">
 
-        <!-- Thẻ Tổng Quan Tài Chính Đã Tối Ưu Bố Cục -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,7 +46,6 @@
                     android:layout_marginTop="2dp"
                     android:layout_marginBottom="6dp" />
 
-                <!-- Thẻ pill nổi bật hiển thị chi tiêu hôm nay -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -69,14 +66,12 @@
                         android:paddingVertical="4dp" />
                 </androidx.cardview.widget.CardView>
 
-                <!-- Đường kẻ phân cách mảnh -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#1E88E5"
                     android:layout_marginBottom="8dp" />
 
-                <!-- Hàng Tổng Thu / Tổng Chi cân đối ở đáy thẻ -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -107,7 +102,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- ================= TRANG 1 (MẶC ĐỊNH): LỊCH LOCKET ================= -->
         <LinearLayout
             android:id="@+id/layoutTabCalendar"
             android:layout_width="match_parent"
@@ -115,7 +109,6 @@
             android:orientation="vertical"
             android:visibility="visible">
 
-            <!-- Thanh điều hướng tháng < Tháng 11 / 2026 > -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -155,7 +148,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Lưới lịch 7 cột -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -189,7 +181,6 @@
                     android:stretchMode="columnWidth" />
             </LinearLayout>
 
-            <!-- Danh sách giao dịch của ngày đang chọn -->
             <TextView
                 android:id="@+id/tvSelectedDayTitle"
                 android:layout_width="match_parent"
@@ -208,7 +199,6 @@
                 android:dividerHeight="1dp" />
         </LinearLayout>
 
-        <!-- ================= TRANG 2: CÁC GIAO DỊCH ================= -->
         <LinearLayout
             android:id="@+id/layoutTabTransactions"
             android:layout_width="match_parent"
@@ -244,7 +234,6 @@
                 android:dividerHeight="1dp" />
         </LinearLayout>
 
-        <!-- ================= TRANG 3: HŨ CHI TIÊU ================= -->
         <LinearLayout
             android:id="@+id/layoutTabJars"
             android:layout_width="match_parent"
@@ -285,7 +274,6 @@
                 android:dividerHeight="8dp" />
         </LinearLayout>
 
-        <!-- ================= TRANG 4: THỐNG KÊ CHI TIÊU ================= -->
         <ScrollView
             android:id="@+id/layoutTabStats"
             android:layout_width="match_parent"
@@ -308,14 +296,12 @@
                     android:textColor="#1565C0"
                     android:layout_marginBottom="12dp" />
 
-                <!-- Biểu đồ tròn chia tỉ lệ -->
                 <com.example.a22_dacn_nguyennhatlong_cr424k.view.PieChartView
                     android:id="@+id/pieChartView"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
                     android:layout_marginBottom="16dp" />
 
-                <!-- Danh sách chú thích màu + số tiền + % từng phần -->
                 <LinearLayout
                     android:id="@+id/layoutStatsLegend"
                     android:layout_width="match_parent"
@@ -327,7 +313,6 @@
 
     </LinearLayout>
 
-    <!-- Nút + nổi (FAB) góc phải phía trên thanh menu dưới -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddTransaction"
         android:layout_width="wrap_content"
@@ -340,7 +325,6 @@
         app:backgroundTint="#1565C0"
         android:contentDescription="Thêm giao dịch" />
 
-    <!-- Thanh Menu điều hướng ở bên dưới màn hình -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"

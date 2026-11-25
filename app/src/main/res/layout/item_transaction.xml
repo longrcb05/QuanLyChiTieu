@@ -8,7 +8,6 @@
     android:padding="12dp"
     android:gravity="center_vertical">
 
-    <!-- Ảnh hóa đơn Locket thu nhỏ -->
     <androidx.cardview.widget.CardView
         android:layout_width="48dp"
         android:layout_height="48dp"

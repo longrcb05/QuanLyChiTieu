@@ -142,7 +142,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Khung chụp & xem lại ảnh hóa đơn -->
         <LinearLayout
             android:id="@+id/boxLocketCamera"
             android:layout_width="match_parent"
